@@ -1,7 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
 from dataclasses import dataclass
-import sys
 import typer
 
 
@@ -68,15 +67,15 @@ def get_ads(search: str, contains: str=None, count: int=5, price_from: int=0) ->
         print("* Use more restrictive name requirements")
         answer = sorted_ads
 
-    print(f"\nShowing cheapest {len(answer)} ads based on search terms: {search_terms}")
-    print(f"Search URL was: {search_URL}")
+    print(f'\nShowing cheapest {len(answer)} ads based on search terms: {search_terms}')
+    print(f'Search URL was: "{search_URL}"')
     if contains != '':
-        print(f"Showing only ads that contain {contains}")
+        print(f'Showing only ads that contain "{contains}"')
 
     print("")
 
     for ad in answer:
-        print(f"{ad.price} €: {ad.name}\n{ad.link}\n")
+        print(f'{ad.price}€: {ad.name}\n"{ad.link}"\n')
 
 if __name__ == '__main__':
     typer.run(get_ads)
