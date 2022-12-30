@@ -8,6 +8,7 @@ def number(text: str) -> float:
     text = text.replace("Negociável", "")
     text = text.replace("Sob orçamento", "")
     text = text.replace("€", "")
+    text = text.replace(".", "")
     text = text.replace(",", ".")
 
     if text == '':
@@ -48,7 +49,7 @@ def get_ads(search: str, contains: str=None, count: int=5, price_from: int=0) ->
     # Remove ads that do not contain mandatory terms
     if contains is not None:
         name_contains = lambda name, contains: contains.replace(" ", "").lower() in name.replace(" ", "").lower()
-        right_ads = list(filter(lambda ad: name_contains(ad.name, "3060ti"), ads))
+        right_ads = list(filter(lambda ad: name_contains(ad.name, contains), ads))
     else:
         right_ads = ads
 
