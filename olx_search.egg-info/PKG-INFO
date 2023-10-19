@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: olx-search
+Version: 0.1
+Summary: A package for searching OLX listings
+Home-page: https://github.com/yourusername/olx-search
+Author: Your Name
+Author-email: your.email@example.com
+License-File: LICENSE
+Requires-Dist: requests
+Requires-Dist: beautifulsoup4
+Requires-Dist: typer

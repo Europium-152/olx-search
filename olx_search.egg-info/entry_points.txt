@@ -1,0 +1,2 @@
+[console_scripts]
+olx-search = source.main:start

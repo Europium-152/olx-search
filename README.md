@@ -8,25 +8,39 @@ Search for the cheapest ads on https://www.olx.pt!
 * Broad search based on key terms
 * String matching - only show ads that meet your criteria
 
+## Installation
+```bash
+cd olx-search
+pip install .
+```
+
 ## Example usage:
 ```bash
-$> python .\main.py --help
+$> olx-search --help
+Usage: olx-search [OPTIONS] SEARCH
 
- Usage: main.py [OPTIONS] SEARCH
+  Get OLX ads sorted by ascending price.
 
-┌─ Arguments ──────────────────────────────────────────────────────────────────────────────────┐
-│ *    search      TEXT  [default: None] [required]                                            │
-└──────────────────────────────────────────────────────────────────────────────────────────────┘
-┌─ Options ────────────────────────────────────────────────────────────────────────────────────┐
-│ --contains          TEXT     [default: None]                                                 │
-│ --count             INTEGER  [default: 5]                                                    │
-│ --price-from        INTEGER  [default: 0]                                                    │
-│ --help                       Show this message and exit.                                     │
-└──────────────────────────────────────────────────────────────────────────────────────────────┘
+  Parameters ---------- search: str     Search string passed to OLX contains:
+  str     Filter ads that contain the *contains* string, ignoring white spaces
+  and capitalization. count: int     Number of ads to show price_from: int
+  Lowest admissible price region: str     Region of Portugal where to search.
+  Some options are {'lisboa', 'porto', 'leiria'}. Refer to the olx website for
+  more.
+
+Arguments:
+  SEARCH  [required]
+
+Options:
+  --contains TEXT
+  --count INTEGER       [default: 5]
+  --price-from INTEGER  [default: 0]
+  --region TEXT
+  --help                Show this message and exit.
 ```
 
 ```bash
-$> python .\main.py "RTX 3060 ti" --contains 3060ti --price-from 200 --count 2
+$> olx-search "RTX 3060 ti" --contains 3060ti --price-from 200 --count 2
 
 
 Showing cheapest 2 ads based on search terms: ['rtx', '3060', 'ti']
