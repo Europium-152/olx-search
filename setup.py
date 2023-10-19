@@ -8,6 +8,7 @@ setup(
         'requests',
         'beautifulsoup4',
         'typer',
+        'lxml',
     ],
     entry_points={
         'console_scripts': [
